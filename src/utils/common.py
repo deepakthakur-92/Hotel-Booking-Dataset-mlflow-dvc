@@ -8,6 +8,7 @@ import pickle
 from src.logger import logging
 from src.exception import CustomException
 from sklearn.model_selection import GridSearchCV
+from src.config import mongo_client
 
 
 
@@ -78,5 +79,29 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
         return report
     
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+
+def get_collection_as_dataframe(database_name, collection_name):
+    """
+    Description: This function returns collection as dataframe
+    ==========================================================
+    params:
+    database-name: database_name
+    collection_name: collection_name
+    ===========================================================
+    returns Pandas dataframe of a collection"""
+
+    try:
+        logging.info(f"Reading data from database: {database_name} and collection: {collection_name}")
+        df = pd.DataFrame(list(mongo_client[database_name][collection_name].find()))
+        logging.info(f"Found columns: {df.columns}")
+        if 'Booking_ID' in df.columns:
+            logging.info(f"Dropping column: Booking_ID")
+            df = df.drop("Booking_ID", axis=1)
+            df = df.reset_index(drop=True)
+        logging.info(f"Row and columns in df: {df.shape}")
+        return df
     except Exception as e:
         raise CustomException(e, sys)
