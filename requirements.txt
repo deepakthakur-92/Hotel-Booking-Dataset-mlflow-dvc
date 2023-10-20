@@ -9,5 +9,6 @@ seaborn
 matplotlib
 scikit-learn
 xgboost
+category_encoders
 ### local packages -
 # -e . # << uncomment this to install from setup.py

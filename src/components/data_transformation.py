@@ -207,7 +207,7 @@ class DataTransformation:
 
             
 
-            logging.info(f"Saved preprocessing object")
+            logging.info(f"data transformation completed!!")
             return (
                 train_arr,
                 test_arr
