@@ -74,10 +74,6 @@ class DataTransformation:
 
 
 
-
-
-
-
     def feature_selection(self,data):
         """
         This function is responsible to get those feature which is important for the model
@@ -111,10 +107,10 @@ class DataTransformation:
             logging.info("Entered in data encoding method with Target Encoding")
             encoder = TargetEncoder()
             encoder = encoder.fit(x, y)
-            encoded_data = encoder.transform(x)
+            #encoded_data = encoder.transform(x)
 
             logging.info("Encoding completed!!")
-            return encoded_data
+            return encoder
         
         except Exception as e:
             raise CustomException(e,sys)
@@ -153,12 +149,56 @@ class DataTransformation:
             raise CustomException(e,sys)
         
 
-    def get_data_transformation_object(self):
+    def get_data_transformation_object(self, x,y):
         """
         This method is responsible for returning the preprocessing object
         """
         try:
+            logging.info("Entered in data transformation preprocessing ")
+            cat_cols=[
+                'meal',
+                'assigned_room_type',
+                'market_segment',
+                'reserved_room_type'
+            ]
 
+            num_cols=[
+                'required_car_parking_spaces',
+                'lead_time',
+                'is_repeated_guest',
+                'previous_cancellations',
+                'previous_bookings_not_canceled',
+                'total_of_special_requests',
+                'average_price_rooms',
+                'total_stays'
+            ]
+
+            #steps for target encoding
+            encoder = TargetEncoder(x,y)
+
+            num_pipeline=Pipeline(steps=[
+                ('scaler', StandardScaler())
+            ])
+
+            cat_pipeline=Pipeline(steps=[
+                ('target_encoding',TargetEncoder(x,y)),
+                ("StandardScaler", StandardScaler())
+            ])
+
+            logging.info(f"Categorical Columns:{cat_cols}")
+            logging.info(f"Numerical Columns:{num_cols}")
+
+            preprocessor=ColumnTransformer(
+                [
+                    ("num_pipeline",num_pipeline,num_cols),
+                    ("cat_pipeline",cat_pipeline,cat_cols)
+                ]
+            )
+
+            return preprocessor
+        
+        except Exception as e:
+            raise CustomException(e,sys)
             
 
     def initiate_data_transformation(self, train_path, test_path):
@@ -177,13 +217,13 @@ class DataTransformation:
 
             # outliers removals in train and test data
             logging.info("Removal of outliers in train and test dataset")
-            train_df = outlier_removal(train_df)
-            test_df =  outlier_removal(test_df)
+            train_df = self.outlier_removal(train_df)
+            test_df =  self.outlier_removal(test_df)
 
             # feature selection in train and test data
             logging.info("Feature selection in train and test dataset")
-            train_df = feature_selection(train_df)
-            test_df = feature_selection(test_df)
+            train_df = self.feature_selection(train_df)
+            test_df = self.feature_selection(test_df)
 
             # divide the train dataset to independent and dependent feature
 
@@ -196,16 +236,21 @@ class DataTransformation:
             target_feature_test_df = test_df[target_column_name]
 
             logging.info("Applying Target encoding on train and test dataset")
-            input_features_encoded_train_df = features_encoding(input_features_train_df,target_feature_train_df)
-            target_feature_encoded_test_df = features_encoding(input_features_test_df,target_feature_test_df)
+            encoder_train = self.features_encoding(input_features_train_df,target_feature_train_df)
+            encoder_test= self.features_encoding(input_features_test_df,target_feature_test_df)
+            input_features_encoded_train_df = encoder_train.transform(input_features_train_df)
+            target_feature_encoded_test_df = encoder_test.transform(input_features_test_df)
 
             logging.info("Applying oversampling technique-SMOTE only in training dataset")
-            input_features_sampled_train_df = oversmapling_smote(input_features_encoded_train_df,target_feature_train_df)
+            input_features_sampled_train_df = self.oversmapling_smote(input_features_encoded_train_df,target_feature_train_df)
 
             logging.info("Scaling of the training and test dataset")
-            scaler = standardization()
+            scaler = self.standardization()
             input_features_scaled_train_arr = scaler.fit_transform(input_features_sampled_train_df)
             target_feature_scaled_test_arr = scaler.transform(target_feature_encoded_test_df)
+
+            #creating preprocessing obj so while prediction we can preprocess
+            preprocessing_obj = self.get_data_transformation_object(input_features_train_df,target_feature_train_df)
 
 
             train_arr = np.c_[
@@ -213,12 +258,19 @@ class DataTransformation:
             ]
             test_arr = np.c_[target_feature_scaled_test_arr, np.array(target_feature_test_df)]
 
+
+            save_object(
+
+                file_path=self.data_tranformation_config.preprocessor_obj_file,
+                obj=preprocessing_obj
+            )
             
 
             logging.info(f"data transformation completed!!")
             return (
                 train_arr,
-                test_arr
+                test_arr,
+                self.data_tranformation_config.preprocessor_obj_file
             )
         
         except Exception as e:
