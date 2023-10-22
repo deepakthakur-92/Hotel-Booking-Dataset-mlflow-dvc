@@ -151,6 +151,14 @@ class DataTransformation:
         
         except Exception as e:
             raise CustomException(e,sys)
+        
+
+    def get_data_transformation_object(self):
+        """
+        This method is responsible for returning the preprocessing object
+        """
+        try:
+
             
 
     def initiate_data_transformation(self, train_path, test_path):
