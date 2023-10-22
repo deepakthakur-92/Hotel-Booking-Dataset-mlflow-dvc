@@ -62,8 +62,25 @@ class CustomData:
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict={
-                
+                "meal":[self.meal],
+                "required_car_parking_spaces":[self.required_car_parking_spaces],
+                "assigned_room_type":[self.assigned_room_type],
+                "lead_time":[self.lead_time],
+                "market_segment":[self.market_segment],
+                "reserved_room_type":[self.reserved_room_type],
+                "is_repeated_guest":[self.is_repeated_guest],
+                "previous_cancellations":[self.previous_cancellations],
+                "previous_bookings_not_canceled":[self.previous_bookings_not_canceled],
+                "total_of_special_requests":[self.total_of_special_requests],
+                "average_price_rooms":[self.average_price_rooms],
+                "total_stays":[self.total_stays],
+
             }
+
+            return pd.DataFrame(custom_data_input_dict)
+        
+        except Exception as e:
+            raise CustomException(e,sys)
         
 
 
