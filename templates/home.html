@@ -1,0 +1,193 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Hotel Customer Performance Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Hotel Booking Cancellation</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">meal</label>
+            <select class="form-control" name="meal_plan" placeholder="type_of_meal_plan" required>
+                <option class="placeholder" selected disabled value="">meal</option>
+                <option value="BB">
+                    Bed & Breakfast
+                </option>
+                <option value="HB">
+                    Half board (breakfast and one other meal usually dinner)
+                </option>
+                <option value="FB">
+                    Full board (breakfast, lunch and dinner)
+                </option>
+                <option value="nomeal">
+                    No meal
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">required_car_parking_spaces</label>
+            <select class="form-control" name="required_car_parking_spaces">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="0">Not Required</option>
+                <option value="1">Required</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">assigned_room_type</label>
+            <select class="form-control" name="assigned_room_type" placeholder="assigned_room_type" required>
+                <option class="placeholder" selected disabled value="">assigned_room_type</option>
+                <option value="A">
+                    A
+                </option>
+                <option value="B">
+                    B
+                </option>
+                <option value="C">
+                    C
+                </option>
+                <option value="D">
+                    D
+                </option>
+                <option value="E">
+                    E
+                </option>
+                <option value="F">
+                    F
+                </option>
+                <option value="G">
+                    G
+                </option>
+                <option value="H">
+                    H
+                </option>
+                <option value="I">
+                    I
+                </option>
+                <option value="K">
+                    K
+                </option>
+                <option value="L">
+                    L
+                </option>
+                <option value="P">
+                    P
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">lead_time</label>
+            <input class="form-control" type="number" name="lead_time"
+                placeholder="lead_time" min='0' max='200' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">market_segment</label>
+            <select class="form-control" name="market_segment" placeholder="market_segment" required>
+                <option class="placeholder" selected disabled value="">market_segment</option>
+                <option value="Direct">
+                    Direct
+                </option>
+                <option value="Corporate">
+                    Corporate
+                </option>
+                <option value="Online ">
+                    Online
+                </option>
+                <option value="Offline ">
+                    Offline
+                </option>
+                <option value="Groups ">
+                    Groups
+                </option>
+                <option value="Complementary ">
+                    Complementary
+                </option>
+                <option value="Aviation ">
+                    Aviation
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">reserved_room_type</label>
+            <select class="form-control" name="reserved_room_type" placeholder="reserved_room_type" required>
+                <option class="placeholder" selected disabled value="">reserved_room_type</option>
+                <option value="A">
+                    A
+                </option>
+                <option value="B">
+                    B
+                </option>
+                <option value="C">
+                    C
+                </option>
+                <option value="D">
+                    D
+                </option>
+                <option value="E">
+                    E
+                </option>
+                <option value="F">
+                    F
+                </option>
+                <option value="G">
+                    G
+                </option>
+                <option value="H">
+                    H
+                </option>
+                <option value="L">
+                    L
+                </option>
+                <option value="P">
+                    P
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">is_repeated_guest</label>
+            <select class="form-control" name="is_repeated_guest">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">previous_cancellations</label>
+            <select class="form-control" name="previous_cancellations">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">previous_bookings_not_canceled</label>
+            <select class="form-control" name="previous_bookings_not_canceled">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">total_of_special_requests</label>
+            <input class="form-control" type="number" name="total_of_special_requests"
+                placeholder="total_of_special_requests" min='1' max='5' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">average_price_rooms</label>
+            <input class="form-control" type="number" name="average_price_rooms"
+                placeholder="average_price_rooms" min='1' max='300' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">total_stays</label>
+            <input class="form-control" type="number" name="total_stays"
+                placeholder="total_stays" min='0' max='10' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
