@@ -1,6 +1,8 @@
 from src.logger import logging
 from src.exception import CustomException
 
+
+
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
@@ -14,7 +16,7 @@ class TrainingPipeline:
         """
 
         try:
-            logging.info("Model training has started")
+            logging.info("Model training has started!!")
 
             logging.info("Data ingestion has started!!")
             data_ingestion = DataIngestion()
