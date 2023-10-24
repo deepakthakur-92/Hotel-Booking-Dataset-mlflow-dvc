@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score,precision_score, recall_score,log_los
 from src.exception import CustomException
 from src.logger import logging
 
-from src.utils import save_object,evaluate_models
+from src.utils.common import save_object,evaluate_models
 
 @dataclass
 class ModelTrainerConfig:
