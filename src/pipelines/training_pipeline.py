@@ -1,6 +1,6 @@
 from src.logger import logging
 from src.exception import CustomException
-
+import sys
 
 
 from src.components.data_ingestion import DataIngestion
