@@ -92,6 +92,8 @@ class DataTransformation:
                                 'arrival_date_week_number'], axis =1)
             data = data.reset_index(drop=True)
 
+            return data
+
             logging.info("feature got removed which was not important for model")
         except Exception as e:
              raise CustomException(e,sys)
@@ -211,6 +213,7 @@ class DataTransformation:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
 
+
             logging.info("Read test and train data completed")
             
             target_column_name='is_canceled'
@@ -219,6 +222,7 @@ class DataTransformation:
             logging.info("Removal of outliers in train and test dataset")
             train_df = self.outlier_removal(train_df)
             test_df =  self.outlier_removal(test_df)
+            
 
             # feature selection in train and test data
             logging.info("Feature selection in train and test dataset")
@@ -227,41 +231,41 @@ class DataTransformation:
 
             # divide the train dataset to independent and dependent feature
 
-            input_features_train_df = train_df.drop(columns=[target_column_name], axis=1)
-            target_feature_train_df = train_df[target_column_name]
-
+            input_features_train_df=train_df.drop(columns=[target_column_name],axis=1)
+            target_feature_train_df=train_df[target_column_name]
+                   
             # divide the test dataset to independent and dependent feature
 
-            input_features_test_df = test_df.drop(columns=[target_column_name],axis=1)
-            target_feature_test_df = test_df[target_column_name]
+            input_features_test_df=test_df.drop(columns=[target_column_name],axis=1)
+            target_feature_test_df=test_df[target_column_name]
 
             logging.info("Applying Target encoding on train and test dataset")
             encoder_train = self.features_encoding(input_features_train_df,target_feature_train_df)
             encoder_test= self.features_encoding(input_features_test_df,target_feature_test_df)
             input_features_encoded_train_df = encoder_train.transform(input_features_train_df)
-            target_feature_encoded_test_df = encoder_test.transform(input_features_test_df)
+            input_feature_encoded_test_df = encoder_test.transform(input_features_test_df)
 
             logging.info("Applying oversampling technique-SMOTE only in training dataset")
-            input_features_sampled_train_df = self.oversmapling_smote(input_features_encoded_train_df,target_feature_train_df)
+            input_features_sampled_train_df, target_feature_sampled_train_df = self.oversmapling_smote(input_features_encoded_train_df,target_feature_train_df)
 
             logging.info("Scaling of the training and test dataset")
             scaler = self.standardization()
             input_features_scaled_train_arr = scaler.fit_transform(input_features_sampled_train_df)
-            target_feature_scaled_test_arr = scaler.transform(target_feature_encoded_test_df)
+            input_feature_scaled_test_arr = scaler.transform(input_feature_encoded_test_df)
 
             #creating preprocessing obj so while prediction we can preprocess
             preprocessing_obj = self.get_data_transformation_object(input_features_train_df,target_feature_train_df)
 
 
             train_arr = np.c_[
-                input_features_scaled_train_arr, np.array(target_feature_train_df)
+                input_features_scaled_train_arr, np.array(target_feature_sampled_train_df)
             ]
-            test_arr = np.c_[target_feature_scaled_test_arr, np.array(target_feature_test_df)]
+            test_arr = np.c_[input_feature_scaled_test_arr, np.array(target_feature_test_df)]
 
 
             save_object(
 
-                file_path=self.data_tranformation_config.preprocessor_obj_file,
+                file_path=self.data_transformation_config.preprocessor_obj_file,
                 obj=preprocessing_obj
             )
             
@@ -270,7 +274,7 @@ class DataTransformation:
             return (
                 train_arr,
                 test_arr,
-                self.data_tranformation_config.preprocessor_obj_file
+                #self.data_transformation_config.preprocessor_obj_file
             )
         
         except Exception as e:
