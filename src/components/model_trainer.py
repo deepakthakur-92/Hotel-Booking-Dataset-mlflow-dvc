@@ -33,6 +33,9 @@ class ModelTrainer:
                 test_array[:,:-1],
                 test_array[:,-1]
             )
+
+            print("x_train shape", X_train.shape)
+            print("x_test", X_test.shape)
             models = {
                 "Random Forest": RandomForestClassifier(),
                 "Decision Tree": DecisionTreeClassifier(),
@@ -95,10 +98,6 @@ class ModelTrainer:
             print(prec)
             print(recall)
             logging.log(acc,prec,recall)
-            
-
-
-
-            
+                     
         except Exception as e:
             raise CustomException(e,sys)
