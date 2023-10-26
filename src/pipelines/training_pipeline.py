@@ -26,6 +26,7 @@ class TrainingPipeline:
             logging.info("Data transformation has started.")
             data_transformation=DataTransformation()
             train_arr,test_arr=data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+
             logging.info("Data transformation has completed")
 
             logging.info("Model training has started")
