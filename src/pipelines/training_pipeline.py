@@ -2,6 +2,8 @@ from src.logger import logging
 from src.exception import CustomException
 import sys
 import warnings
+import dagshub
+from urllib.parse import urlparse
 
 
 from src.components.data_ingestion import DataIngestion
@@ -47,6 +49,11 @@ class TrainingPipeline:
         #mlflow.set_tracking_uri("http://localhost:5000") #uncomment this line if you want to use any database like sqlite as backend storage for model
         mlflow.set_experiment(experiment_name)
         
+        #dagshub.init("Hotel-Booking-Dataset-mlflow-dvc", "deepak2009thakur", mlflow=True)
+
+       
+
+        
         with mlflow.start_run():
             # if not run_params == None:
             #     for param in run_params:
@@ -57,7 +64,7 @@ class TrainingPipeline:
             mlflow.log_metric('precision', precision)
             mlflow.log_metric('recall', recall)
             
-            mlflow.sklearn.log_model(model, "model")
+            #mlflow.sklearn.log_model(model, "model")
             
             if not confusion_matrix_path == None:
                 mlflow.log_artifact(confusion_matrix_path, 'confusion_matrix')
@@ -68,9 +75,25 @@ class TrainingPipeline:
             mlflow.set_tag("tag1", "Decision Tree")
             mlflow.set_tags({"tag2":"RandomForestClassifier", "tag3":"Production"})
 
-            ## For Remote server only(DAGShub)
+             ## For Remote server only(DAGShub)
             remote_server_uri="https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow"
             mlflow.set_tracking_uri(remote_server_uri)
+
+            tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+            # Model registry does not work with file store
+            if tracking_url_type_store != "file":
+                # Register the model
+                # There are other ways to use the Model Registry, which depends on the use case,
+                # please refer to the doc for more information:
+                # https://mlflow.org/docs/latest/model-registry.html#api-workflow
+
+                mlflow.sklearn.log_model(
+                model, "model", registered_model_name=experiment_name
+                    )
+            else:
+                mlflow.sklearn.log_model(model, "model")
+
 
             
 
