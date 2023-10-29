@@ -5,10 +5,12 @@ import time
 import pandas as pd
 import json
 import pickle
+import sys
 from src.logger import logging
 from src.exception import CustomException
 from sklearn.model_selection import GridSearchCV
 from src.config import mongo_client
+from sklearn.metrics import r2_score,accuracy_score
 
 
 
@@ -71,11 +73,14 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
             y_test_pred = model.predict(X_test)
 
-            train_model_score = model.score(y_train, y_train_pred)
 
-            test_model_score = model.score(y_test, y_test_pred)
+            #train_model_score = model.score(y_train, y_train_pred)
+
+            #test_model_score = model.score(X_test, y_test_pred)
+            test_model_score = accuracy_score(y_test, y_test_pred)
 
             report[list(models.keys())[i]] = test_model_score
+            
 
         return report
     
