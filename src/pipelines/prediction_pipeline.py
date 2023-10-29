@@ -39,7 +39,7 @@ class CustomData:
                 reserved_room_type: str,
                 is_repeated_guest: int,
                 previous_cancellations: int,
-                previous_bookings_not_canceled, int,
+                previous_bookings_not_canceled: int,
                 total_of_special_requests: int,
                 average_price_rooms: int,
                 total_stays: int
