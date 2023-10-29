@@ -31,4 +31,10 @@ pip install -r requirements.txt
 dvc init
 ```
 
-### STEP 06
+### STEP 06 - Dags hub Experiments- ML FLow
+```
+MLFLOW_TRACKING_URI=https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow \
+MLFLOW_TRACKING_USERNAME=deepak2009thakur \
+MLFLOW_TRACKING_PASSWORD=09a89198ee7cb39d44891d982e04cef1c388d58a \
+python script.py
+```
