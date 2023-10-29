@@ -34,13 +34,11 @@ class ModelTrainer:
                 test_array[:,-1]
             )
 
-            print("x_train shape", X_train.shape)
-            print("x_test", X_test.shape)
             models = {
                 "Random Forest": RandomForestClassifier(),
                 "Decision Tree": DecisionTreeClassifier(),
                 "Logistic Regression": LogisticRegression(),
-                "XGBRegressor": XGBClassifier(),
+                "XGBClassifier": XGBClassifier(),
             }
             params={
                 "Decision Tree": {
@@ -49,7 +47,7 @@ class ModelTrainer:
                     # 'max_features':['sqrt','log2'],
                 },
                 "Random Forest":{
-                   'n_estimators' : [100],
+                 #  'n_estimators' : [100],
                 #    'n_jobs' : [-1],
                  #  'max_features':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
                 #   'max_depth':[3, 4, 5, 6, 7, 9, 11],
@@ -57,9 +55,9 @@ class ModelTrainer:
                 },
 
                 "Logistic Regression":{},
-                "XGBRegressor":{
-                    'learning_rate':[.1,.01,.05,.001],
-                    'n_estimators': [8,16,32,64,128,256]
+                "XGBClassifier":{
+                 #   'learning_rate':[.1,.01,.05,.001],
+                 #   'n_estimators': [8,16,32,64,128,256]
                 }
                 
             }
@@ -78,7 +76,7 @@ class ModelTrainer:
             best_model = models[best_model_name]
 
             if best_model_score<0.6:
-                raise CustomException("No best model found",sys)
+                raise CustomException("No best model found")
             logging.info(f"Best found model on both training and testing dataset")
 
             save_object(
@@ -91,9 +89,7 @@ class ModelTrainer:
             acc = accuracy_score(y_test, predicted)
             prec = precision_score(y_test, predicted)
             recall = recall_score(y_test, predicted)
-            return acc
-            return prec
-            return recall
+            return best_model, acc, prec, recall
             print(acc)
             print(prec)
             print(recall)
