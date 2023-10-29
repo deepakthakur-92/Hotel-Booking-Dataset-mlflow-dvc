@@ -69,7 +69,7 @@ class TrainingPipeline:
             mlflow.set_tags({"tag2":"RandomForestClassifier", "tag3":"Production"})
 
             ## For Remote server only(DAGShub)
-            remote_server_uri="https://dagshub.com/krishnaik06/mlflowexperiments.mlflow"
+            remote_server_uri="https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow"
             mlflow.set_tracking_uri(remote_server_uri)
 
             
