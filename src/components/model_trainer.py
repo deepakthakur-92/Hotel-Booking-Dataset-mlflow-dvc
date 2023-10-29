@@ -42,22 +42,22 @@ class ModelTrainer:
             }
             params={
                 "Decision Tree": {
-                   # 'criterion':['gini','entropy],
-                    # 'splitter':['best','random'],
+                    'criterion':['gini','entropy'],
+                     'splitter':['best','random'],
                     # 'max_features':['sqrt','log2'],
                 },
                 "Random Forest":{
-                 #  'n_estimators' : [100],
+                   'n_estimators' : [100],
                 #    'n_jobs' : [-1],
                  #  'max_features':[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
-                #   'max_depth':[3, 4, 5, 6, 7, 9, 11],
-                #    'min_samples_split':[2,3]
+                   'max_depth':[3, 4, 5, 6, 7, 9, 11],
+                    'min_samples_split':[2,3]
                 },
 
                 "Logistic Regression":{},
                 "XGBClassifier":{
-                 #   'learning_rate':[.1,.01,.05,.001],
-                 #   'n_estimators': [8,16,32,64,128,256]
+                    'learning_rate':[.1,.01,.05,.001],
+                    'n_estimators': [8,16,32,64,128,256]
                 }
                 
             }
