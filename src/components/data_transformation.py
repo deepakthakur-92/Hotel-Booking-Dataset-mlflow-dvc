@@ -176,14 +176,15 @@ class DataTransformation:
             ]
 
             #steps for target encoding
-            encoder = TargetEncoder(x,y)
+            encoder = TargetEncoder()
+            #encode = encoder.fit(x,y)
 
             num_pipeline=Pipeline(steps=[
                 ('scaler', StandardScaler())
             ])
 
             cat_pipeline=Pipeline(steps=[
-                ('target_encoding',TargetEncoder(x,y)),
+                ('target_encoding',encoder),
                 ("StandardScaler", StandardScaler())
             ])
 
@@ -196,6 +197,8 @@ class DataTransformation:
                     ("cat_pipeline",cat_pipeline,cat_cols)
                 ]
             )
+
+            preprocessor.fit(x,y)
 
             return preprocessor
         
