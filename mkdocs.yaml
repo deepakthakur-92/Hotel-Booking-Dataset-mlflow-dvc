@@ -1,5 +1,5 @@
 # Project information
-site_name: REPO_NAME_OR_SITE_NAME
+site_name: Hotel-Booking-Dataset-mlflow-dvc
 # defeine TOC or order of website-
 nav:
   - Home: index.md
@@ -8,8 +8,8 @@ site_author: Deepak Thakur
 site_description: >-
   DESCRIPTION
 # Repository
-repo_name: deepakthakur-92/REPO_NAME
-repo_url: https://github.com/deepakthakur-92/REPO_NAME
+repo_name: deepakthakur-92/Hotel-Booking-Dataset-mlflow-dvc
+repo_url: https://github.com/deepakthakur-92/Hotel-Booking-Dataset-mlflow-dvc
 
 # Configuration
 theme:
