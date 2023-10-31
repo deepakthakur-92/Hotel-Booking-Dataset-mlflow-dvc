@@ -3,6 +3,7 @@ site_name: Hotel-Booking-Dataset-mlflow-dvc
 # defeine TOC or order of website-
 nav:
   - Home: index.md
+  - Dataset: Dataset.md
 
 site_author: Deepak Thakur
 site_description: >-
@@ -67,4 +68,4 @@ plugins:
   - search
 
 copyright: |
-  &copy; 2022 <a href="https://github.com/deepakthakur-92"  target="_blank" rel="noopener">Deepak Thakur</a>
+  &copy; 2023 <a href="https://github.com/deepakthakur-92"  target="_blank" rel="noopener">Deepak Thakur</a>
