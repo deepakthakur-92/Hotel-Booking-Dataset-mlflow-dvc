@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/53e87b6a404d462aa59b2bcc65a4c570/artifacts
+end_time: 1698759310689
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: 53e87b6a404d462aa59b2bcc65a4c570
+run_name: mercurial-hound-760
+run_uuid: 53e87b6a404d462aa59b2bcc65a4c570
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698759310600
+status: 4
+tags: []
+user_id: deepak.thakur

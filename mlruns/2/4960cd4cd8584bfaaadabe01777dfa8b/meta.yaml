@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/4960cd4cd8584bfaaadabe01777dfa8b/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: 4960cd4cd8584bfaaadabe01777dfa8b
+run_name: adaptable-trout-126
+run_uuid: 4960cd4cd8584bfaaadabe01777dfa8b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698582590951
+status: 1
+tags: []
+user_id: deepak.thakur

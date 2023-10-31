@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/1
+creation_time: 1698578841236
+experiment_id: '1'
+last_update_time: 1698578841236
+lifecycle_stage: active
+name: Random_Forest

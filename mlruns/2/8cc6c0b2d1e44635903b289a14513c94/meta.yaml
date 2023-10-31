@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/8cc6c0b2d1e44635903b289a14513c94/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: 8cc6c0b2d1e44635903b289a14513c94
+run_name: capricious-sheep-143
+run_uuid: 8cc6c0b2d1e44635903b289a14513c94
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698590337034
+status: 1
+tags: []
+user_id: deepak.thakur

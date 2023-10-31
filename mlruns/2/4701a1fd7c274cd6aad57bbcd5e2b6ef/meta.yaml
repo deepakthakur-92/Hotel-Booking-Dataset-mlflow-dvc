@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/4701a1fd7c274cd6aad57bbcd5e2b6ef/artifacts
+end_time: 1698579055602
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: 4701a1fd7c274cd6aad57bbcd5e2b6ef
+run_name: valuable-calf-715
+run_uuid: 4701a1fd7c274cd6aad57bbcd5e2b6ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698579052688
+status: 3
+tags: []
+user_id: deepak.thakur

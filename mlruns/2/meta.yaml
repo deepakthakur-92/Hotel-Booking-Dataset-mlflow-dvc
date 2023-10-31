@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2
+creation_time: 1698579052434
+experiment_id: '2'
+last_update_time: 1698579052434
+lifecycle_stage: active
+name: Optimized_model

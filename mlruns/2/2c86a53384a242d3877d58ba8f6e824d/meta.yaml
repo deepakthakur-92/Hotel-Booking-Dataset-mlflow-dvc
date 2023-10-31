@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/2c86a53384a242d3877d58ba8f6e824d/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: 2c86a53384a242d3877d58ba8f6e824d
+run_name: shivering-wren-335
+run_uuid: 2c86a53384a242d3877d58ba8f6e824d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698595861551
+status: 1
+tags: []
+user_id: deepak.thakur

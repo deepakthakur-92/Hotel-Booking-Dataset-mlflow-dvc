@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/deepak.thakur/Work/Hotel-Booking-Dataset-mlflow-dvc/mlruns/2/d5f7312e945147f9b1a9d84f5cadb7d2/artifacts
+end_time: 1698594169490
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: d5f7312e945147f9b1a9d84f5cadb7d2
+run_name: salty-turtle-660
+run_uuid: d5f7312e945147f9b1a9d84f5cadb7d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698594163082
+status: 3
+tags: []
+user_id: deepak.thakur
