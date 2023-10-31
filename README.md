@@ -38,3 +38,5 @@ MLFLOW_TRACKING_USERNAME=deepak2009thakur \
 MLFLOW_TRACKING_PASSWORD=09a89198ee7cb39d44891d982e04cef1c388d58a \
 python script.py
 ```
+
+![Alt text](image.png)
