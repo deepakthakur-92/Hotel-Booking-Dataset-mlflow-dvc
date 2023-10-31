@@ -45,8 +45,8 @@ def predict_datapoint():
         predict_pipeline=PredictPipeline()
         print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
-        print("after Prediction")
-        return render_template('home.html',results=results[0])
+        prediction_label = "Booking will not Cancel" if results[0] == 0 else "Booking will be Canceled"
+        return render_template('home.html', results=prediction_label)
     
 
 if __name__ == '__main__':
