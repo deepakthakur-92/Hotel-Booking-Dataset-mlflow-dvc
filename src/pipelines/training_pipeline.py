@@ -98,7 +98,7 @@ class TrainingPipeline:
             
 
             # Suppress the specific warning
-            warnings.filterwarnings("ignore", message="Setuptools is replacing distutils.")
+            #warnings.filterwarnings("ignore", message="Setuptools is replacing distutils.")
 
                 
         print('Run - %s is logged to Experiment - %s' %(run_name, experiment_name))
