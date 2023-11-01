@@ -11,6 +11,7 @@ The online hotel reservation channels have dramatically changed booking possibil
 
 **Attributes:**
 
+- Booking_ID: Unique booking ID
 - adults: Number of adults
 - children: Number of children
 - babies: Number of babies
