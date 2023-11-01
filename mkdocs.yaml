@@ -8,7 +8,7 @@ nav:
   - Model Trainer: Model-Trainer.md
   - Training Pipeline: Training-Pipeline.md
   - Prediction Pipeline: Prediction-Pipeline.md
-  - Aplication: Application.md
+  - Application: Application.md
 
 site_author: Deepak Thakur
 site_description: >-
