@@ -1,49 +1,8 @@
-# dvc-project-template
-DVC project template
-
-## STEPS -
-
-### STEP 01- Create a repository by using template repository
-
-### STEP 02- Clone the new repository
-
-### STEP 03- Create a conda environment after opening the repository in VSCODE
-
-```bash
-conda create --prefix ./env python=3.7 -y
-```
-
-```bash
-conda activate ./env
-```
-OR
-```bash
-source activate ./env
-```
-
-### STEP 04- install the requirements
-```bash
-pip install -r requirements.txt
-```
-
-### STEP 05- initialize the dvc project
-```bash
-dvc init
-```
-
-### STEP 06 - Dags hub Experiments- ML FLow
-```
-MLFLOW_TRACKING_URI=https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow \
-MLFLOW_TRACKING_USERNAME=deepak2009thakur \
-MLFLOW_TRACKING_PASSWORD=09a89198ee7cb39d44891d982e04cef1c388d58a \
-python script.py
-```
-
-![Alt text](image.png)
-
 ## Hotel-Booking-Dataset-mlflow-dvc
 
 The online hotel reservation channels have dramatically changed booking possibilities and customers’ behavior. A significant number of hotel reservations are called-off due to cancellations or no-shows. The typical reasons for cancellations include change of plans, scheduling conflicts, etc. This is often made easier by the option to do so free of charge or preferably at a low cost which is beneficial to hotel guests but it is a less desirable and possibly revenue-diminishing factor for hotels to deal with.
+
+Basically This is classification problem to predict if the customer is going to honor the reservation or cancel it. 
 
 ## Dataset
 
@@ -81,6 +40,15 @@ This dataset can be used for various purposes, including but not limited to:
 # Project Demo
 Below providing the link of all the document that are required for creating the project
 Link: [Document link](https://deepakthakur-92.github.io/Hotel-Booking-Dataset-mlflow-dvc/)
+
+### Dags hub Experiments- ML FLow
+```
+MLFLOW_TRACKING_URI=https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow \
+MLFLOW_TRACKING_USERNAME=deepak2009thakur \
+MLFLOW_TRACKING_PASSWORD=09a89198ee7cb39d44891d982e04cef1c388d58a \
+python script.py
+```
+![Alt text](image.png)
 
 
 # Installation
@@ -143,10 +111,5 @@ To view my app, hit the following URL in any of the browser such as Chrome, Fire
 ## http://127.0.0.1:5000/predictdata - for prediction site
 
 
-### Dags hub Experiments- ML FLow
-```
-MLFLOW_TRACKING_URI=https://dagshub.com/deepak2009thakur/Hotel-Booking-Dataset-mlflow-dvc.mlflow \
-MLFLOW_TRACKING_USERNAME=deepak2009thakur \
-MLFLOW_TRACKING_PASSWORD=09a89198ee7cb39d44891d982e04cef1c388d58a \
-python script.py
-```
+# Contributer
+- Deepak Thakur
