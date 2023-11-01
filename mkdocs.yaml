@@ -2,8 +2,13 @@
 site_name: Hotel-Booking-Dataset-mlflow-dvc
 # defeine TOC or order of website-
 nav:
-  - Home: index.md
-  - Dataset: Dataset.md
+  - Home: Dataset.md
+  - Data Ingestion: Data-Ingestion.md
+  - Data Transformation: Data-Transformation.md
+  - Model Trainer: Model-Trainer.md
+  - Training Pipeline: Training-Pipeline.md
+  - Prediction Pipeline: Prediction-Pipeline.md
+  - Aplication: Application.md
 
 site_author: Deepak Thakur
 site_description: >-
