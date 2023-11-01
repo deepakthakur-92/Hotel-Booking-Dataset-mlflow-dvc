@@ -77,6 +77,12 @@ This dataset can be used for various purposes, including but not limited to:
 7. Documentation        :  Created detailed document of the entire project, including data sources, preprocessing steps, model details, and results.
 ~~~
 
+
+# Project Demo
+Below providing the link of all the document that are required for creating the project
+Link: [Document link](https://deepakthakur-92.github.io/Hotel-Booking-Dataset-mlflow-dvc/)
+
+
 # Installation
 
 To run my app on your local machine, do the following steps.
