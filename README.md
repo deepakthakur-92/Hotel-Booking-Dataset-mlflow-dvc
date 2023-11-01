@@ -50,6 +50,10 @@ python script.py
 ```
 ![Alt text](image.png)
 
+### Prediction Page
+
+![Image](image-1.png)
+
 
 # Installation
 
