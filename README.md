@@ -39,7 +39,7 @@ This dataset can be used for various purposes, including but not limited to:
 
 # Project Demo
 Below providing the link of all the document that are required for creating the project
-Link: [Document link](https://deepakthakur-92.github.io/Hotel-Booking-Dataset-mlflow-dvc/)
+Link: [Document link](https://deepakthakur-92/github.io/Hotel-Booking-Dataset-mlflow-dvc/)
 
 ### Dags hub Experiments- ML FLow
 ```
